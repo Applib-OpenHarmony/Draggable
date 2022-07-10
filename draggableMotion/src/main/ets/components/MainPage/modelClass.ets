@@ -27,7 +27,7 @@ namespace DraggableModel {
     private columns : number
     private colorsList : string[]
     private shadowOptions : ShadowOptions
-    private labelTextList : string[] = undefined
+    private labelTextList : string[]
     private ballSize : SizeOptions
 
     constructor(columns : number , ballSize : SizeOptions, colorsList : string[], shadowOptions? : ShadowOptions, labelTextList? : string[]) {

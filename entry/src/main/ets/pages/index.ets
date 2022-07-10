@@ -21,7 +21,7 @@ const allColors: string[] = [
   '#49BEAA', '#49DCB1', '#EEB868', '#EF767A',
 ];
 
-const text = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+const text = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K']
 
 @Entry
 @Component
