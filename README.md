@@ -93,7 +93,7 @@ struct Index {
 
 ## Compatibility
 
-Supports OpenHarmony API version 9
+Supports OpenHarmony API version 8 and above.
 
 ## Code Contribution
 

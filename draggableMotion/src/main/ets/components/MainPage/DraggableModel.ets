@@ -41,7 +41,7 @@ namespace DraggableModel {
 
     setColumns(columns : number) : Model {
       if(columns == undefined || columns == null) {
-        new Error('Give valid input for columns( number )')
+        console.error('Give valid input for columns( number )')
       }
       else {
         this.columns = columns
@@ -55,7 +55,7 @@ namespace DraggableModel {
 
     setBallSize(ballSize : SizeOptions) : Model {
       if(ballSize == undefined || ballSize == null) {
-        new Error('Give valid input for ballSize')
+        console.error('Give valid input for ballSize')
       }
       else {
         this.ballSize = ballSize
@@ -69,7 +69,7 @@ namespace DraggableModel {
 
     setColorsList(colorsList : string[]) : Model {
       if(colorsList == undefined || colorsList == null) {
-        new Error('Give valid input for colorsList')
+        console.error('Give valid input for colorsList')
       }
       else {
         this.validateColorsListLength(colorsList)
@@ -84,7 +84,7 @@ namespace DraggableModel {
 
     setShadowOptions(shadowOptions : ShadowOptions) : Model {
       if(shadowOptions == undefined || shadowOptions == null) {
-        new Error('Give valid input for shadowOptions')
+        console.error('Give valid input for shadowOptions')
       }
       else {
         this.shadowOptions = shadowOptions
@@ -98,7 +98,7 @@ namespace DraggableModel {
 
     setLabelTextList(labelTextList : string[]) : Model {
       if(labelTextList == undefined || labelTextList == null) {
-        new Error('Give valid input for labelTextList')
+        console.error('Give valid input for labelTextList')
       }
       else {
         this.labelTextList = labelTextList
@@ -112,7 +112,7 @@ namespace DraggableModel {
 
     private validateColorsListLength(colorsList : string[]) : void {
       if (colorsList.length < this.columns){
-        new Error('colorsList length should be >= columns')
+        console.error('colorsList length should be >= columns')
       }
     }
 

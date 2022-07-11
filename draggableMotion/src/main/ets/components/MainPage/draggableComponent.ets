@@ -15,8 +15,8 @@ Copyright [2022] [Application library engineering group]
  */
 
 import Curves from '@ohos.curves'
-import { Cell } from './types'
-import { DraggableModel } from './modelClass'
+import { Cell } from './DraggableTypes'
+import { DraggableModel } from './DraggableModel'
 
 const springSetting1: string = Curves.spring(0, 1, 180, 10)
 const springSetting2: string = Curves.spring(0, 1, 120, 15)
@@ -37,6 +37,10 @@ export struct Draggable {
   private cellHeight: number
 
   aboutToAppear() {
+    if(this.model == undefined || this.model == null) {
+      console.error('Please pass correct model to the Draggable component');
+      return;
+    }
     this.ballCount = this.model.getColorsList().length
     this.cellWidth = DraggableModel.Model.len2num(this.model.getBallSize().width) + 20
     this.cellHeight = DraggableModel.Model.len2num(this.model.getBallSize().height) + 40
@@ -188,4 +192,4 @@ export struct Draggable {
   }
 }
 
-export { DraggableModel } from './modelClass'
+export { DraggableModel } from './DraggableModel'
