@@ -31,17 +31,17 @@ namespace DraggableModel {
     private ballSize : SizeOptions
 
     constructor(columns : number , ballSize : SizeOptions, colorsList : string[], shadowOptions? : ShadowOptions, labelTextList? : string[]) {
-      this.columns = columns
-      this.ballSize = ballSize
-      this.colorsList = colorsList
-      this.shadowOptions = (shadowOptions)? shadowOptions : DEFAULT_SHADOW_OPTIONS
-      if(labelTextList) this.labelTextList = labelTextList
-      else this.labelTextList = this.createDefaultTextList()
+      this.setColumns(columns)
+      this.setBallSize(ballSize)
+      this.setColorsList(colorsList)
+      this.setShadowOptions( (shadowOptions)? shadowOptions : DEFAULT_SHADOW_OPTIONS)
+      this.setLabelTextList( (labelTextList)? labelTextList : this.createDefaultTextList())
     }
 
     setColumns(columns : number) : Model {
       if(columns == undefined || columns == null) {
         console.error('Give valid input for columns( number )')
+        return
       }
       else {
         this.columns = columns
@@ -56,6 +56,7 @@ namespace DraggableModel {
     setBallSize(ballSize : SizeOptions) : Model {
       if(ballSize == undefined || ballSize == null) {
         console.error('Give valid input for ballSize')
+        return
       }
       else {
         this.ballSize = ballSize
@@ -70,6 +71,7 @@ namespace DraggableModel {
     setColorsList(colorsList : string[]) : Model {
       if(colorsList == undefined || colorsList == null) {
         console.error('Give valid input for colorsList')
+        return
       }
       else {
         this.validateColorsListLength(colorsList)
@@ -85,6 +87,7 @@ namespace DraggableModel {
     setShadowOptions(shadowOptions : ShadowOptions) : Model {
       if(shadowOptions == undefined || shadowOptions == null) {
         console.error('Give valid input for shadowOptions')
+        this.shadowOptions = DEFAULT_SHADOW_OPTIONS
       }
       else {
         this.shadowOptions = shadowOptions
@@ -99,6 +102,7 @@ namespace DraggableModel {
     setLabelTextList(labelTextList : string[]) : Model {
       if(labelTextList == undefined || labelTextList == null) {
         console.error('Give valid input for labelTextList')
+        this.labelTextList = this.createDefaultTextList()
       }
       else {
         this.labelTextList = labelTextList
