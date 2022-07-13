@@ -37,7 +37,9 @@ export struct Draggable {
   private cellHeight: number
 
   aboutToAppear() {
-    if(this.model == undefined || this.model == null) {
+    if (this.model == undefined || this.model == null
+        || this.model.getBallSize() == null || this.model.getBallSize() == undefined
+        || this.model.getColorsList() == null || this.model.getColorsList() == undefined) {
       console.error('Please pass correct model to the Draggable component');
       return;
     }
@@ -68,13 +70,13 @@ export struct Draggable {
   }
 
   private nearestBallIndex() {
-    var psuedoCol = Math.floor(this.mouseXY[0]/this.cellWidth)
-    var psuedoRow = Math.floor(this.mouseXY[1]/this.cellHeight)
-    var col = (psuedoCol >= 0 && psuedoCol < this.model.getColumns())? psuedoCol : this.model.getColumns()-1;
-    var row = (psuedoRow >= 0 && psuedoRow < Math.ceil(this.ballCount/this.model.getColumns()))? psuedoRow : Math.ceil(this.ballCount/this.model.getColumns())-1;
+    var psuedoCol = Math.floor(this.mouseXY[0] / this.cellWidth)
+    var psuedoRow = Math.floor(this.mouseXY[1] / this.cellHeight)
+    var col = (psuedoCol >= 0 && psuedoCol < this.model.getColumns()) ? psuedoCol : this.model.getColumns() - 1;
+    var row = (psuedoRow >= 0 && psuedoRow < Math.ceil(this.ballCount / this.model.getColumns())) ? psuedoRow : Math.ceil(this.ballCount / this.model.getColumns()) - 1;
     if (psuedoCol < 0) col = 0
-    if(psuedoRow < 0) row = 0
-    return row*this.model.getColumns() + col
+    if (psuedoRow < 0) row = 0
+    return row * this.model.getColumns() + col
   }
 
   private shadowXOffset(key: number): number {

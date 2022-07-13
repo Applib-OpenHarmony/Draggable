@@ -14,7 +14,7 @@ Copyright [2022] [Application library engineering group]
    limitations under the License.
  */
 
-import { DraggableModel, Draggable} from '@ohos/draggablemotion'
+import { DraggableModel, Draggable } from '@ohos/draggablemotion'
 
 const allColors: string[] = [
   '#EF767A', '#456990', '#49BEAA', '#49DCB1', '#EEB868', '#EF767A', '#456990',
@@ -26,13 +26,16 @@ const text = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K']
 @Entry
 @Component
 struct Index {
-  model : DraggableModel.Model = new DraggableModel.Model(3, {width : '50vp', height : '50vp' }, allColors).setLabelTextList(text)
+  model: DraggableModel.Model = new DraggableModel.Model(3, {
+    width: '50vp',
+    height: '50vp'
+  }, allColors).setLabelTextList(text)
 
   build() {
     Row() {
       Column() {
         Draggable({
-          model : this.model
+          model: this.model
         })
       }
       .width('100%')
